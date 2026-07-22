@@ -1,0 +1,34 @@
+name: 定时分析（自动演示）
+
+on:
+  schedule:
+    - cron: "0 22 * * 2,4,0"
+  workflow_dispatch:
+
+permissions:
+  contents: write
+
+jobs:
+  run:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.11"
+      - name: 运行标准流程（内置样本数据演示，非实时开奖）
+        run: |
+          python scripts/build_db.py
+          python scripts/ssq_red_coldhot.py
+          python scripts/ssq_filter_rules.py
+          python scripts/ssq_select_groups.py
+          python scripts/ssq_final_groups.py
+          python scripts/ssq_optimize_engine.py
+          python scripts/ssq_review.py
+      - name: 回写结果（仅 csv/json，不含 html）
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "github-actions[bot]@users.noreply.github.com"
+          git add '*.csv' '*.json'
+          git commit -m "chore: 自动运行分析（内置样本数据演示）$(date +%F)" || echo "no changes"
+          git push
