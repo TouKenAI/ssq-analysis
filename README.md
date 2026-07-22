@@ -1,4 +1,10 @@
 # SSQ Analysis（双色球选号分析）
+<p align="center">
+  <img alt="License" src="https://img.shields.io/badge/license-MIT-green" />
+  <img alt="Python" src="https://img.shields.io/badge/Python-3.8%2B-blue" />
+  <img alt="By" src="https://img.shields.io/badge/by-TouKenAI-orange" />
+</p>
+
 
 > **双色球（中国福利彩票）标准 5 步分析流程 + 最大覆盖优化引擎**
 >
@@ -115,3 +121,17 @@ ssq-analysis/
 **重庆投肯智能科技有限公司** / 陈刚
 - GitHub: [TouKenAI](https://github.com/TouKenAI)
 - 品牌: [toukenai.com](https://toukenai.com)
+
+
+## 投肯智能开源矩阵
+
+> 重庆投肯智能科技有限公司 · 开源项目导航
+
+| 仓库 | 说明 |
+|------|------|
+| [TouKenAI](https://github.com/TouKenAI/TouKenAI) | 门面 / 公司形象展示页（Profile README） |
+| **[ssq-analysis](https://github.com/TouKenAI/ssq-analysis)** | 双色球标准5步分析 + 优化引擎（本仓库） |
+| [daletou-analysis](https://github.com/TouKenAI/daletou-analysis) | 大乐透标准5步分析 + 优化引擎 |
+| [philosophy-methodology](https://github.com/TouKenAI/philosophy-methodology) | 哲学方法论体系（4层 + 实验记录） |
+| [ai-behavior-constraints](https://github.com/TouKenAI/ai-behavior-constraints) | AI 行为约束体系（7条硬约束） |
+| [tech-whitepaper](https://github.com/TouKenAI/tech-whitepaper) | 投肯智能技术白皮书（FDE / 信创 / AI落地） |
