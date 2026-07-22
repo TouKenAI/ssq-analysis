@@ -20,7 +20,15 @@
 import csv, os, math, random
 import ssq_select_groups as sg
 
-OUT = os.environ.get("SSQ_DATA", os.getcwd())
+def _resolve_data_dir(env_name="SSQ_DATA"):
+    # 兼容 Windows + Git Bash: os.getcwd()/环境变量可能返回 /x/... 形式的 POSIX 路径,
+    # Windows 原生 Python 会误判为 C:/x/... 而找不到目录, 这里归一化为 X:/...
+    p = os.environ.get(env_name, os.getcwd())
+    if os.name == "nt" and len(p) >= 3 and p[0] == "/" and p[1].isalpha() and p[2] == "/":
+        p = p[1].upper() + ":" + p[2:]
+    return p
+
+OUT = _resolve_data_dir("SSQ_DATA")
 RAW = os.path.join(OUT, "ssq_raw_20.csv")
 FINAL = os.path.join(OUT, "ssq_final_groups.csv")
 CSV_OUT = os.path.join(OUT, "ssq_optimized_groups.csv")
