@@ -24,8 +24,4 @@ jobs:
           python scripts/ssq_optimize_engine.py
           python scripts/ssq_review.py
       - name: 校验产出
-        run: test -f ssq_raw_20.csv \
-          && test -f ssq_final_groups.csv \
-          && test -f ssq_optimized_groups.csv \
-          && test -f summary.json \
-          && echo "OK outputs present"
+        run: test -f ssq_raw_20.csv && test -f ssq_final_groups.csv && test -f ssq_optimized_groups.csv && test -f summary.json && echo "OK outputs present"
