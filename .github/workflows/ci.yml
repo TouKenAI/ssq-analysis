@@ -1,0 +1,27 @@
+name: CI 可运行验证
+
+on:
+  push:
+  pull_request:
+
+jobs:
+  verify:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.11"
+      - name: 语法检查
+        run: python -m py_compile scripts/*.py
+      - name: 实跑标准5步流程
+        run: |
+          python scripts/build_db.py
+          python scripts/ssq_red_coldhot.py
+          python scripts/ssq_filter_rules.py
+          python scripts/ssq_select_groups.py
+          python scripts/ssq_final_groups.py
+          python scripts/ssq_optimize_engine.py
+          python scripts/ssq_review.py
+      - name: 校验产出
+        run: test -f ssq_final_groups.csv && test -f ssq_optimized_groups.csv && test -f ssq_review.csv && echo "OK outputs present"
