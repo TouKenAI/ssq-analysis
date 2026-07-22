@@ -77,16 +77,21 @@ python scripts/ssq_review.py          # 7.独立复查（必跑）
 ```
 ssq-analysis/
 ├── SKILL.md                      # 完整技能说明文档
-├── LICENSE                       # MIT 开源许可证
-└── scripts/
-    ├── build_db.py              # 第1步：数据存档
-    ├── ssq_red_coldhot.py        # 第2步：红球冷热分析
-    ├── ssq_filter_rules.py       # 第3步：硬性过滤规则
-    ├── ssq_select_groups.py      # 第4步：备选蓝球+差异化组合
-    ├── ssq_final_groups.py       # 第5步：成品号码输出
-    ├── ssq_optimize_engine.py    # 第6层：优化引擎
-    ├── ssq_review.py             # 独立复查（必跑）
-    └── ssq_rotate.py             # 轮换生成器（娱乐框架）
+├── README.md                     # 本文件（GitHub 开源说明）
+├── LICENSE                       # MIT 开源许可证（含理性购彩声明）
+├── .gitignore                    # 忽略运行产出的临时文件
+├── scripts/
+│   ├── build_db.py              # 第1步：数据存档
+│   ├── ssq_red_coldhot.py        # 第2步：红球冷热分析
+│   ├── ssq_filter_rules.py       # 第3步：硬性过滤规则
+│   ├── ssq_select_groups.py      # 第4步：备选蓝球+差异化组合
+│   ├── ssq_final_groups.py       # 第5步：成品号码输出
+│   ├── ssq_optimize_engine.py    # 第6层：优化引擎
+│   ├── ssq_review.py             # 独立复查（必跑）
+│   └── ssq_rotate.py             # 轮换生成器（娱乐框架）
+└── references/
+    ├── methodology.md             # 数学模型与方法论细节
+    └── sample_ssq_raw_20.csv      # 内置样本数据（离线可复现）
 ```
 
 ---
